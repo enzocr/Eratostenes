@@ -8,27 +8,44 @@ public class CribaEratostenes {
 
 	}
 
-	public static int[] generaCriba(int tope) {
-		int[] primos;
-		if (tope >= 2) {
-			int dim = tope + 1;
+	public int[] generaCriba(int tope) throws Exception {
 
-			inicializarArreglo(dim);
-			setCeroyUno();
-			marcarPares(dim);
+		if (isValid(tope)) {
 
-			primos = new int[contarPrimos(dim)];
-
-			for (int i = 0, j = 0; i < dim; i++) {
-				if (primo[i])
-					primos[j++] = 1;
-			}
-
-			return primos;
+			return empezarCriba(tope);
 		} else {
 			return new int[0];
 		}
 
+	}
+
+	public boolean isValid(int tope) throws Exception {
+		if (tope >= 2) {
+			return true;
+		} else {
+			if (tope == 0) {
+				return false;
+			} else {
+				throw new Exception("NUMEROS NEGATIVOS NO PERMITIDOS");
+			}
+		}
+	}
+
+	private static int[] empezarCriba(int tope) {
+		int[] primos;
+		int dim = tope + 1;
+
+		inicializarArreglo(dim);
+		setCeroyUno();
+		marcarPares(dim);
+
+		primos = new int[contarPrimos(dim)];
+
+		for (int i = 0, j = 0; i < dim; i++) {
+			if (primo[i])
+				primos[j++] = i;
+		}
+		return primos;
 	}
 
 	private static void inicializarArreglo(int dim) {
