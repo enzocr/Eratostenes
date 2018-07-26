@@ -21,4 +21,16 @@ public class CribaEratostenesTest {
 		assertArrayEquals(arreglo, criba.generaCriba(0));
 	}
 
+	@Test
+	public void validNumber() throws Exception {
+		assertTrue(criba.isValid(8));
+
+	}
+
+	@Test(expected = Exception.class)
+	public void isNegative() throws Exception {
+		assertFalse(criba.isValid(-1));
+
+	}
+
 }
