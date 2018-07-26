@@ -63,5 +63,14 @@ public class CribaEratostenesTest {
 		assertArrayEquals(arreglo, criba.generaCriba(100));
 	}
 
+	@Test
+	public void notTheSameFourthList() throws Exception {
+		int[] arreglo = new int[4];
+		arreglo[0] = 2;
+		arreglo[1] = 3;
+		arreglo[2] = 5;
+		arreglo[3] = 7;
+		assertNotEquals(arreglo, criba.generaCriba(3));
+	}
 
 }
