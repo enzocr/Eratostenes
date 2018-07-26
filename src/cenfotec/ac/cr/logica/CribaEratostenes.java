@@ -15,14 +15,9 @@ public class CribaEratostenes {
 			
 			inicializarArreglo(dim);
 			setCeroyUno();
+			marcarPares(dim);
 			
-			for (i = 2; i < Math.sqrt(dim) + 1; i++) {
-				if (primo[i]) {
-					for (j = 2 * i; j < dim; j += i) {
-						primo[j] = false;
-					}
-				}
-			}
+			
 			int cuenta = 0;
 
 			for (i = 0; i < dim; i++) {
@@ -53,5 +48,15 @@ public class CribaEratostenes {
 	private static void setCeroyUno() {
 		primo[0] = primo[1] = false;
 	}
+	private static void marcarPares(int dim) {
+		for (int i = 2; i < Math.sqrt(dim) + 1; i++) {
+			if (primo[i]) {
+				for (int j = 2 * i; j < dim; j += i) {
+					primo[j] = false;
+				}
+			}
+		}
+	}
+
 
 }
