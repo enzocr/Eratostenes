@@ -5,6 +5,8 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import cenfotec.ac.cr.logica.CribaEratostenes;
+
 public class CribaEratostenesTest {
 
 	static CribaEratostenes criba;
