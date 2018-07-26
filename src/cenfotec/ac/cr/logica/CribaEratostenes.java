@@ -12,12 +12,10 @@ public class CribaEratostenes {
 		int i, j;
 		if (tope >= 2) {
 			int dim = tope + 1;
+			
 			inicializarArreglo(dim);
-
-			for (i = 0; i < dim; i++) {
-				primo[i] = true;
-			}
-			primo[0] = primo[1] = false;
+			setCeroyUno();
+			
 			for (i = 2; i < Math.sqrt(dim) + 1; i++) {
 				if (primo[i]) {
 					for (j = 2 * i; j < dim; j += i) {
@@ -50,6 +48,10 @@ public class CribaEratostenes {
 		for (int i = 0; i < dim; i++) {
 			primo[i] = true;
 		}
+	}
+
+	private static void setCeroyUno() {
+		primo[0] = primo[1] = false;
 	}
 
 }
